@@ -1,6 +1,5 @@
 # determination-of-optical-fibers-strength
 # A project to determine the strength of optical fiber (ENGLISH V)
-git commit -m "
 Co-authored-by:(https://github.com/Parallelogramator)"
 ## Description
 
