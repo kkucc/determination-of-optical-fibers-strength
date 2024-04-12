@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body class="main-content">
+<h1 class="title" style="margin-top:25px;">Fiber stretching</h1>
+<div class="title" style="margin-bottom: 100px; margin-top:50px;">
+    <h1>The control panel of our project</h1>
+</div>
+
+<div class="center">
+    <a class="box" style="background-color: #013d36;" href="/input_diameter" target="/">
+        Make a new dimension
+    </a>
+
+    <a class="box" style="background-color: black;" href="/history" target="/">
+        View the history of changes
+    </a>
+    <a class="box" style="background-color: #0d3444;" href="/graph" target="/">
+        View the measurement graph
+    </a>
+
+</div>
+<style>
+     .box {
+        display: inline-block;
+        width: 29%;  /* Set the desired width */
+        height: 10%;  /* Set the desired height */
+        line-height: 30px; /* Line height for vertical text alignment */
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        background-color: blue;
+        text-decoration: none;
+        font-family: Roboto;
+        border-radius: 5px;
+        margin: 5px;
+        box-sizing: border-box;
+        transition: background-color 0.3s;
+    }
+
+    .on {
+        width: 200%;
+        background-color: #96BF8B;
+        border-radius: 3px;
+        color: white;
+        font-size: 14px;
+        font-family: Roboto;
+        text-align: center;
+    }
+
+    .off {
+        width: 200%;
+        background-color: #BF616A;
+        border-radius: 3px;
+        color: white;
+        font-size: 14px;
+        font-family: Roboto;
+        text-align: center;
+    }
+    .main-content {
+        background-color: #f4b086;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+    }
+
+    .center {
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        display: flex;
+    }
+
+    .wrapper {
+        display: inline-grid;
+        place-self: center;
+
+        justify-items: center;
+        align-items: center;
+
+        grid-template-columns: repeat(3, 1fr);
+        height: 50vh;
+        grid-auto-rows: minmax(100px, auto);
+    }
+
+    .item {
+        border-radius: 8px;
+        text-align: center;
+
+        width: 40%;
+    }
+
+    .title {
+        color: #120813;
+        font-family: Roboto;
+        text-align: center;
+    }
+
+    .button
+    {
+        background-color: #1C51E3;
+        border: none;
+        color: white;
+        padding: 30px 64px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        width: 16%;
+        font-size: 10px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+    }
+
+    h3 {
+        color: #B3BAC5;
+        font-family: Roboto;
+        text-align: center;
+    }
+
+    ::selection {
+        background: #c8cce4;
+    }
+
+</style>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    function updateData() {
+        $.getJSON('/get_data', function(data) {
+            $('#length').text(data['length']);
+            $('#strength').text(data['strength']);
+            $('#time').text(data['time']);
+        });
+    }
+
+    function updateStatus(id, value) {
+        var element = $('#' + id);
+        var on = value === 1;
+        element.removeClass('on off');
+        element.addClass(on ? 'on' : 'off');
+        element.html(on ? 'ON' : 'OFF');
+    }
+
+    // Calling the function immediately
+    updateData();
+    // Setting the interval for regular data updates
+    setInterval(updateData, 5000);
+});
+
+</script>
+</script>
+</body>
+</html>
