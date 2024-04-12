@@ -1,6 +1,7 @@
 # determination-of-optical-fibers-strength
 # A project to determine the strength of optical fiber (ENGLISH V)
-
+git commit -m "
+Co-authored-by:(https://github.com/Parallelogramator)"
 ## Description
 
 The project is aimed at developing a set of software and hardware tools for determining the strength characteristics of optical fiber by uniaxial stretching. The aim of the project is to create a solution that allows accurate and reproducible measurements necessary to ensure the reliability of fiber-optic cable systems.
