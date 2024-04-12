@@ -4,6 +4,7 @@
 ## Description
 
 The project is aimed at developing a set of software and hardware tools for determining the strength characteristics of optical fiber by uniaxial stretching. The aim of the project is to create a solution that allows accurate and reproducible measurements necessary to ensure the reliability of fiber-optic cable systems.
+![prototipr](https://github.com/kkucc/determination-of-optical-fibers-strength/blob/kkucc-patch-1/gitoptical.png)
 
 ## Why
 
